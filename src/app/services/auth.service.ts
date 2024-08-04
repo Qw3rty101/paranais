@@ -4,23 +4,34 @@ import { catchError, Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   private apiUrl = environment.apiUrl;
-  // private apiUrl = 'http://127.0.0.1:8000/api/login'; // URL API Laravel
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
+
+  register(name_user: string, email: string, password: string): Observable<any> {
+    const body = {
+      name_user: name_user,
+      email: email,
+      password: password,
+    };
+
+    return this.http
+      .post<any>(`${this.apiUrl}/api/register`, body)
+      .pipe(catchError(this.handleError<any>('register')));
+  }
 
   login(email: string, password: string): Observable<any> {
     const body = {
       email: email,
-      password: password
+      password: password,
     };
 
-    return this.http.post<any>(this.apiUrl + '/api/login', body).pipe(
-      catchError(this.handleError<any>('login'))
-    );
+    return this.http
+      .post<any>(`${this.apiUrl}/api/login`, body)
+      .pipe(catchError(this.handleError<any>('login')));
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

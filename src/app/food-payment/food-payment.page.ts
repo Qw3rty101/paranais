@@ -7,7 +7,7 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./food-payment.page.scss'],
 })
 export class FoodPaymentPage {
-  amount: number | undefined;
+  amount: number = 1;
   paymentMethod: string | undefined;
   bankAccount: string | undefined;
 
@@ -21,11 +21,12 @@ export class FoodPaymentPage {
   }
 
   async submitPayment() {
-    const alert = await this.alertController.create({
-      header: 'Pembayaran Berhasil',
-      message: `Metode: ${this.paymentMethod} ${this.paymentMethod === 'bank' ? ', No Rekening: ' + this.bankAccount : ''}, Jumlah: Rp ${this.amount}`,
+      const alert = await this.alertController.create({
+      header: 'Pesanan Anda Segera Diantar!',
+      message: `Jumlah: ${this.amount}`,
       buttons: ['OK']
     });
+  
 
     await alert.present();
   }

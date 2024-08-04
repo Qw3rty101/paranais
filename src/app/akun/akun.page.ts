@@ -7,12 +7,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./akun.page.scss'],
 })
 export class AkunPage implements OnInit {
+  nama: any;
 
   constructor(
     private navCtrl: NavController,
     private router: Router
   ) { }
   ngOnInit() {
+    const nama = localStorage.getItem('nama');
+    this.nama = nama;
   }
 
   goToLoginPage(){

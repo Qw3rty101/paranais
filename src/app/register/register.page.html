@@ -13,20 +13,41 @@
       <ion-col>
         <form (ngSubmit)="register()">
           <ion-item>
-            <ion-label position="floating">Email</ion-label>
-            <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
+            <ion-label position="floating">Nama</ion-label>
+            <ion-input
+              type="text"
+              [(ngModel)]="name_user"
+              name="name_user"
+              required
+            ></ion-input>
           </ion-item>
-          
+          <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input
+              type="email"
+              [(ngModel)]="email"
+              name="email"
+              required
+            ></ion-input>
+          </ion-item>
           <ion-item>
             <ion-label position="floating">Password</ion-label>
-            <ion-input type="password" [(ngModel)]="password" name="password" required></ion-input>
+            <ion-input
+              type="password"
+              [(ngModel)]="password"
+              name="password"
+              required
+            ></ion-input>
           </ion-item>
-          
           <ion-item>
             <ion-label position="floating">Konfirmasi Password</ion-label>
-            <ion-input type="password" [(ngModel)]="confirmPassword" name="confirmPassword" required></ion-input>
+            <ion-input
+              type="password"
+              [(ngModel)]="confirmPassword"
+              name="confirmPassword"
+              required
+            ></ion-input>
           </ion-item>
-          
           <ion-button expand="full" type="submit">Daftar</ion-button>
         </form>
       </ion-col>
