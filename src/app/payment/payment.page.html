@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Pembayaran</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Metode Pembayaran</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-radio-group [(ngModel)]="selectedPaymentMethod">
+            <ion-item>
+              <ion-label>Kartu Kredit/Debit</ion-label>
+              <ion-radio slot="start" value="card"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>DANA</ion-label>
+              <ion-radio slot="start" value="dana"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>GoPay</ion-label>
+              <ion-radio slot="start" value="gopay"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Transfer Bank</ion-label>
+              <ion-radio slot="start" value="bank"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+
+        <div [ngSwitch]="selectedPaymentMethod">
+          <div *ngSwitchCase="'card'">
+            <ion-item>
+              <ion-label position="stacked">Nama Kartu</ion-label>
+              <ion-input type="text" placeholder="Nama pada kartu"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">Nomor Kartu</ion-label>
+              <ion-input type="text" placeholder="Nomor kartu kredit/debit"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">Tanggal Kedaluwarsa</ion-label>
+              <ion-input type="text" placeholder="MM/YY"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">CVV</ion-label>
+              <ion-input type="text" placeholder="CVV"></ion-input>
+            </ion-item>
+          </div>
+          <div *ngSwitchCase="'dana'">
+            <ion-item>
+              <ion-label position="stacked">Nomor DANA</ion-label>
+              <ion-input type="text" placeholder="Nomor akun DANA"></ion-input>
+            </ion-item>
+          </div>
+          <div *ngSwitchCase="'gopay'">
+            <ion-item>
+              <ion-label position="stacked">Nomor GoPay</ion-label>
+              <ion-input type="text" placeholder="Nomor akun GoPay"></ion-input>
+            </ion-item>
+          </div>
+          <div *ngSwitchCase="'bank'">
+            <ion-item>
+              <ion-label position="stacked">Nama Bank</ion-label>
+              <ion-input type="text" placeholder="Nama bank"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">Nomor Rekening</ion-label>
+              <ion-input type="text" placeholder="Nomor rekening"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">Nama Pemilik Rekening</ion-label>
+              <ion-input type="text" placeholder="Nama pemilik rekening"></ion-input>
+            </ion-item>
+          </div>
+        </div>
+
+        <ion-button expand="full" (click)="makePayment()">Bayar Sekarang</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

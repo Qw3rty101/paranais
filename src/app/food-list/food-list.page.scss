@@ -1,0 +1,19 @@
+ion-content{
+  --background: rgb(204, 236, 200);
+  min-height: 100%;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+ion-card {
+    --box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 10px;
+  }
+  
+  .animated-card {
+    transition: transform 0.3s ease-out;
+  }
+  
+  .animated-card:hover {
+    transform: translateY(-5px);
+  }
+  

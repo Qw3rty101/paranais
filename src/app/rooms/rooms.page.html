@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="danger" defaultHref="tabs/beranda"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Rooms</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let room of rooms">
+      <ion-label>
+        <h2>{{ room.name }}</h2>
+        <p>{{ room.description }}</p>
+      </ion-label>
+      <ion-button (click)="goToReservation(room.id)">Reserve</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

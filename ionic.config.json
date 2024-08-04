@@ -1,0 +1,10 @@
+{
+  "name": "the paranais hotel",
+  "integrations": {
+    "capacitor": {
+      "enabled": false
+    },
+    "cordova": {}
+  },
+  "type": "angular"
+}

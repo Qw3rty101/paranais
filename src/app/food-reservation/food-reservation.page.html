@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/food-list"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Pesan Makanan</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="selectedFood">
+  <ion-card>
+    <img [src]="selectedFood.imageUrl" alt="{{ selectedFood.name }}">
+    <ion-card-header>
+      <ion-card-title>{{ selectedFood.name }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{ selectedFood.description }}</p>
+      <p><strong>Harga:</strong> {{ selectedFood.price | currency: 'IDR' }}</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-button expand="full" color="primary" [routerLink]="['/food-payment']">Lanjutkan Pemesanan</ion-button>
+</ion-content>

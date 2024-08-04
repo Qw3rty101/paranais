@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/food-reservation"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Pembayaran Makanan</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <form (ngSubmit)="submitPayment()">
+          <ion-item>
+            <ion-label position="floating">Jumlah Pembayaran (Rp)</ion-label>
+            <ion-input type="number" [(ngModel)]="amount" name="amount" required></ion-input>
+          </ion-item>
+          
+          <ion-item>
+            <ion-label position="floating">Metode Pembayaran</ion-label>
+            <ion-select [(ngModel)]="paymentMethod" name="paymentMethod" (ionChange)="onPaymentMethodChange()" required>
+              <ion-select-option value="dana">Dana</ion-select-option>
+              <ion-select-option value="gopay">GoPay</ion-select-option>
+              <ion-select-option value="bank">Bank Transfer</ion-select-option>
+              <ion-select-option value="cash">Cash on Place</ion-select-option>
+            </ion-select>
+          </ion-item>
+          
+          <ion-item *ngIf="paymentMethod === 'bank'">
+            <ion-label position="floating">Nomor Rekening Bank</ion-label>
+            <ion-input type="text" [(ngModel)]="bankAccount" name="bankAccount" required></ion-input>
+          </ion-item>
+          
+          <ion-button expand="full" type="submit">Bayar Sekarang</ion-button>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

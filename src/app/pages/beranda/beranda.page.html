@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title color="light">Halo, Nais Friends!</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let room of rooms">
+      <ion-card>
+        <img [src]="room.image_url" alt="{{ room.name }}" />
+        <ion-card-header>
+          <ion-card-title>{{ room.name }}</ion-card-title>
+          <ion-card-subtitle>{{ room.price | currency: 'IDR' }}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <p>{{ room.description }}</p>
+          <ion-button color="success" expand="full" (click)="goToReservation(room.id)">PESAN</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>
