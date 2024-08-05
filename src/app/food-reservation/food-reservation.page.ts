@@ -48,5 +48,9 @@ export class FoodReservationPage implements OnInit {
       console.error('ID parameter not found in route.');
     }
   }
+
+  foodpayment() {
+
+  }
   
 }

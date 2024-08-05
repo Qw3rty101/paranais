@@ -26,6 +26,7 @@ export class BerandaPage implements OnInit {
 
       localStorage.setItem('nama', userData.name_user);
       localStorage.setItem('email', userData.email);
+      localStorage.setItem('id_user', userData.id_user);
     } else {
       console.error('Data pengguna tidak ditemukan di localStorage');
       localStorage.clear();
