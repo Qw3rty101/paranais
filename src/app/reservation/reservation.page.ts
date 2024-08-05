@@ -14,8 +14,8 @@ export class ReservationPage implements OnInit {
   name: string = '';
   email: string = '';
   id_user: any[] = [];
-  checkin: string = new Date().toISOString();
-  checkout: string = new Date().toISOString();
+  checkin: string = '';
+  checkout: string = '';
 
   rooms = [
     {
@@ -81,13 +81,14 @@ export class ReservationPage implements OnInit {
   
     console.log({
       id: this.roomId,
+      id_user: this.id_user,
       checkin: this.checkin,
       checkout: this.checkout,
     });
   
     const orderData = {
       id: this.roomId,
-      id_user: localStorage.getItem('id_user'),
+      id_user: this.id_user,
       checkin: String(this.checkin),
       checkout: String(this.checkout),
     };

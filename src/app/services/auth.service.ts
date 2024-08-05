@@ -37,9 +37,16 @@ export class AuthService {
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       // Menampilkan pesan kesalahan di konsol
-      console.error(error.error.message);
+      if(error.error.message) {
+
+        console.error(error.error.message);
+        return of({ error: error.error.message } as T);
+      } else {
+        console.error('Too Many Req')
+        return of({ error: 'Too Many Request!' } as T);
+      }
       // Mengembalikan observable dengan pesan kesalahan
-      return of({ error: error.error.message } as T);
+      
     };
   }
 }
